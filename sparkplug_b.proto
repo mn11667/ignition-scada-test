@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package sparkplug;
+
+message Payload {
+    int64 timestamp = 1;
+    int32 seq = 2;
+    repeated Metric metrics = 3;
+    int64 bdSeq = 4;
+    string uuid = 5;
+}
+
+message Metric {
+    string name = 1;
+
+    enum DataType {
+        NULL = 0;
+        Int32 = 1;
+        Int64 = 2;
+        Float = 3;
+        Double = 4;
+        Boolean = 5;
+        String = 6;
+        DateTime = 7;
+        Text = 8;
+    }
+
+    DataType data_type = 2;
+
+    int32 int_value = 3;
+    int64 long_value = 4;
+    float float_value = 5;
+    double double_value = 6;
+    bool bool_value = 7;
+    string string_value = 8;
+    int64 date_time_value = 9;
+    string text_value = 10;
+
+    int64 timestamp = 11;
+}
