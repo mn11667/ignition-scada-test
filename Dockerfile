@@ -2,10 +2,9 @@ FROM python:3.10-slim
 
 WORKDIR /app
 
-COPY . .
+COPY . /app
 
-RUN pip install flask
-
-EXPOSE 5100
+# Install paho-mqtt
+RUN pip install --no-cache-dir paho-mqtt
 
 CMD ["python", "app.py"]

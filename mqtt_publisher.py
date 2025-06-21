@@ -16,3 +16,4 @@ while True:
     client.publish("sensors/data", json.dumps(data))
     print("Published:", data)
     time.sleep(2)
+
